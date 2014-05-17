@@ -5,7 +5,7 @@ Arduino library for mightIO 10V ADC/DAC board
 #ifndef mightIO_h
 #define mightIO_h
 
-#include "WProgram.h"
+#include "Arduino.h"
 #include <Wire.h>
 
 #define DAC_BASE_ADDR 	0x60
@@ -55,6 +55,6 @@ class mightIO
 	
 	void		adcSetup(); // write setup byte
 	void		adcConfig(uint8_t ch, bool scanone); // write config byte
-};*
+};
 #endif
 

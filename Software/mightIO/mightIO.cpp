@@ -13,7 +13,7 @@ mightIO::mightIO(uint8_t dacID, uint8_t adcID) : adcLastConfig(0)
 }
 
 // Or without addresses, default to 0 for both
-mightIO::mightIO() : mightIO(0,0)
+mightIO::mightIO() : dacAddr(DAC_BASE_ADDR), adcAddr(ADC_BASE_ADDR)
 {}
 
 
@@ -21,8 +21,8 @@ mightIO::mightIO() : mightIO(0,0)
 void mightIO::begin()
 {
   Wire.begin();
-  this->dacSetGain();
   this->dacSetVref();
+  this->dacSetGain();
   this->adcSetup();
 }
 
@@ -37,8 +37,8 @@ void mightIO::analogWrite(int16_t vout[])
 	uint16_t val = 4095&((vout[i] + 10240)/5);
 	// this is implicitly setting PD1,PD0 to 0 in upper bytes
 	// which means normal operation
-    Wire.send(highByte(val));
-    Wire.send(lowByte(val));
+    Wire.write(highByte(val));
+    Wire.write(lowByte(val));
   }
   Wire.endTransmission();
 }
@@ -50,10 +50,10 @@ void mightIO::analogWrite(uint8_t ch, int16_t vout)
   uint16_t val = 4095&((vout + 10240)/5);
   
   // create a single-write command
-  Wire.send(DAC_MULTIWRITE | (ch << 1));
+  Wire.write(DAC_MULTIWRITE | (ch << 1));
   // and write the data, with Vref, PD, and gain set appropriately
-  Write.send(0b10010000 | highByte(val));
-  Wire.send(lowByte(val));
+  Wire.write(0b10010000 | highByte(val));
+  Wire.write(lowByte(val));
 
   Wire.endTransmission();
 }
@@ -64,19 +64,19 @@ int16_t mightIO::analogRead(uint8_t ch)
 {
   this->adcConfig(ch, true);
   
-  Wire.requestFrom(this->adcAddr,2);
+  Wire.requestFrom(this->adcAddr, (uint8_t)2);
   int16_t vin = (Wire.read() & 0xF) << 8;
   vin = vin | Wire.read();
   return 5*(vin-2048);
 }
 
 // Read ADC inputs in order, as many as specified
-void mightIO::analogRead(uint16_t vin[], uint8_t nchan)
+void mightIO::analogRead(int16_t vin[], uint8_t nchan)
 {
   // set to scan to nchan-1
   this->adcConfig(nchan-1, false);
   // and read all of the bytes
-  Wire.requestFrom(this->adcAddr,2*nchan);
+  Wire.requestFrom((int)this->adcAddr,2*nchan);
   for (uint8_t i=0; i<nchan; i++)
   {
 	int16_t v = (Wire.read() & 0xF) << 8;
@@ -85,7 +85,7 @@ void mightIO::analogRead(uint16_t vin[], uint8_t nchan)
   }
 }
 // or all of them, call with 4
-void mightIO::analogRead(uint16_t vin[])
+void mightIO::analogRead(int16_t vin[])
 {
   this->analogRead(vin,4);
 }
@@ -96,13 +96,13 @@ void mightIO::analogRead(uint16_t vin[])
 inline void mightIO::adcConfig(uint8_t ch, bool scanone)
 {
   uint8_t cfg = ADC_CFGSINGLE | (ch << 1) | (scanone?ADC_CFGSCANONE:0);
-  // if same as previous, don't need to send
+  // if same as previous, don't need to write
   if (cfg == this->adcLastConfig)
     return;
   
-  // else send and save
+  // else write and save
   Wire.beginTransmission(this->adcAddr);
-  Wire.send(cfg);
+  Wire.write(cfg);
   Wire.endTransmission();
   
   this->adcLastConfig = cfg;
@@ -112,7 +112,7 @@ inline void mightIO::adcConfig(uint8_t ch, bool scanone)
 void mightIO::adcSetup()
 {
   Wire.beginTransmission(this->adcAddr);
-  Wire.send(ADC_SETUPBYTE | ADC_SETSEL);
+  Wire.write(ADC_SETUPBYTE | ADC_SETSEL);
   Wire.endTransmission();
 }
 
@@ -120,7 +120,7 @@ void mightIO::adcSetup()
 void mightIO::dacSetVref()
 {
   Wire.beginTransmission(this->dacAddr);
-  Wire.send(DAC_VREFWRITE | 0b1111); 
+  Wire.write(DAC_VREFWRITE | 0b1111);
   Wire.endTransmission();
 }
 
@@ -128,7 +128,7 @@ void mightIO::dacSetVref()
 void mightIO::dacSetGain()
 {
   Wire.beginTransmission(this->dacAddr);
-  Wire.send(DAC_GAINWRITE | 0b1111);
-  //Wire.send(DAC_GAINWRITE | 0b0000); would set gain to 1
+  Wire.write(DAC_GAINWRITE | 0b1111);
+  //Wire.write(DAC_GAINWRITE | 0b0000); would set gain to 1
   Wire.endTransmission();
 }
