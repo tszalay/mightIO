@@ -6463,32 +6463,32 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <part name="P+2" library="supply1" deviceset="+5V" device=""/>
 <part name="C2" library="rcl" deviceset="C-US" device="C0603" value="0.1uF"/>
 <part name="C3" library="rcl" deviceset="C-US" device="C0603" value="0.1uF"/>
-<part name="C4" library="rcl" deviceset="C-US" device="C0603" value="1uF"/>
-<part name="C5" library="rcl" deviceset="C-US" device="C0603" value="1uF"/>
-<part name="C7" library="rcl" deviceset="C-US" device="C0603" value="1uF"/>
+<part name="C4" library="rcl" deviceset="C-US" device="C0603" value="2.2uF"/>
+<part name="C5" library="rcl" deviceset="C-US" device="C0603" value="2.2uF"/>
+<part name="C7" library="rcl" deviceset="C-US" device="C0603" value="2.2uF"/>
 <part name="P+3" library="supply1" deviceset="+5V" device=""/>
 <part name="P+4" library="supply1" deviceset="+5V" device=""/>
-<part name="C6" library="rcl" deviceset="C-US" device="C0603" value="1uF"/>
+<part name="C6" library="rcl" deviceset="C-US" device="C0603" value="2.2uF"/>
 <part name="IC1" library="linear" deviceset="TL064" device="D"/>
 <part name="IC2" library="linear" deviceset="TL064" device="D"/>
 <part name="R3" library="rcl" deviceset="R-US_" device="R0603" value="100k"/>
 <part name="R4" library="rcl" deviceset="R-US_" device="R0603" value="20k"/>
 <part name="C8" library="rcl" deviceset="C-US" device="C0603" value="220pF"/>
-<part name="R5" library="rcl" deviceset="R-US_" device="R0603" value="100k"/>
-<part name="R6" library="rcl" deviceset="R-US_" device="R0603" value="20k"/>
-<part name="C9" library="rcl" deviceset="C-US" device="C0603" value="220pF"/>
+<part name="R5" library="rcl" deviceset="R-US_" device="R0603" value="20k"/>
+<part name="R6" library="rcl" deviceset="R-US_" device="R0603" value="100k"/>
+<part name="C9" library="rcl" deviceset="C-US" device="C0603" value="47pF"/>
 <part name="R7" library="rcl" deviceset="R-US_" device="R0603" value="20k"/>
 <part name="R8" library="rcl" deviceset="R-US_" device="R0603" value="100k"/>
 <part name="C10" library="rcl" deviceset="C-US" device="C0603" value="47pF"/>
-<part name="R9" library="rcl" deviceset="R-US_" device="R0603" value="20k"/>
-<part name="R10" library="rcl" deviceset="R-US_" device="R0603" value="100k"/>
-<part name="C11" library="rcl" deviceset="C-US" device="C0603" value="47pF"/>
-<part name="R11" library="rcl" deviceset="R-US_" device="R0603" value="100k"/>
-<part name="R12" library="rcl" deviceset="R-US_" device="R0603" value="20k"/>
-<part name="C12" library="rcl" deviceset="C-US" device="C0603" value="220pF"/>
-<part name="R13" library="rcl" deviceset="R-US_" device="R0603" value="20k"/>
-<part name="R14" library="rcl" deviceset="R-US_" device="R0603" value="100k"/>
-<part name="C13" library="rcl" deviceset="C-US" device="C0603" value="47pF"/>
+<part name="R9" library="rcl" deviceset="R-US_" device="R0603" value="100k"/>
+<part name="R10" library="rcl" deviceset="R-US_" device="R0603" value="20k"/>
+<part name="C11" library="rcl" deviceset="C-US" device="C0603" value="220pF"/>
+<part name="R11" library="rcl" deviceset="R-US_" device="R0603" value="20k"/>
+<part name="R12" library="rcl" deviceset="R-US_" device="R0603" value="100k"/>
+<part name="C12" library="rcl" deviceset="C-US" device="C0603" value="47pF"/>
+<part name="R13" library="rcl" deviceset="R-US_" device="R0603" value="100k"/>
+<part name="R14" library="rcl" deviceset="R-US_" device="R0603" value="20k"/>
+<part name="C13" library="rcl" deviceset="C-US" device="C0603" value="220pF"/>
 <part name="R17" library="rcl" deviceset="R-US_" device="R0603" value="100k"/>
 <part name="R18" library="rcl" deviceset="R-US_" device="R0603" value="20k"/>
 <part name="C15" library="rcl" deviceset="C-US" device="C0603" value="220pF"/>
