@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="6.5.0">
+<eagle version="7.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -13363,7 +13363,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <junction x="86.36" y="78.74"/>
 </segment>
 </net>
-<net name="N$5" class="0">
+<net name="AI1" class="0">
 <segment>
 <wire x1="-66.04" y1="5.08" x2="-66.04" y2="-7.62" width="0.1524" layer="91"/>
 <pinref part="R9" gate="G$1" pin="2"/>
@@ -13372,7 +13372,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <wire x1="-78.74" y1="-7.62" x2="-66.04" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$13" class="0">
+<net name="AI0" class="0">
 <segment>
 <pinref part="R3" gate="G$1" pin="2"/>
 <pinref part="JP3" gate="A" pin="4"/>
@@ -13483,7 +13483,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <wire x1="91.44" y1="5.08" x2="106.68" y2="5.08" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$24" class="0">
+<net name="AOA" class="0">
 <segment>
 <pinref part="IC2" gate="D" pin="OUT"/>
 <pinref part="R8" gate="G$1" pin="1"/>
@@ -13500,7 +13500,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <wire x1="149.86" y1="-12.7" x2="157.48" y2="-12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$6" class="0">
+<net name="AI3" class="0">
 <segment>
 <pinref part="JP3" gate="A" pin="1"/>
 <wire x1="-71.12" y1="-12.7" x2="-78.74" y2="-12.7" width="0.1524" layer="91"/>
@@ -13509,7 +13509,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <wire x1="-71.12" y1="-55.88" x2="-60.96" y2="-55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$30" class="0">
+<net name="AOC" class="0">
 <segment>
 <pinref part="IC1" gate="D" pin="OUT"/>
 <pinref part="R6" gate="G$1" pin="1"/>
@@ -13526,7 +13526,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <wire x1="144.78" y1="-7.62" x2="157.48" y2="-7.62" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$2" class="0">
+<net name="AOD" class="0">
 <segment>
 <pinref part="IC2" gate="C" pin="OUT"/>
 <pinref part="R20" gate="G$1" pin="1"/>
@@ -13569,7 +13569,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <wire x1="91.44" y1="-25.4" x2="106.68" y2="-25.4" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$16" class="0">
+<net name="AI2" class="0">
 <segment>
 <pinref part="R13" gate="G$1" pin="2"/>
 <wire x1="-60.96" y1="-25.4" x2="-66.04" y2="-25.4" width="0.1524" layer="91"/>
@@ -13629,7 +13629,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <wire x1="-7.62" y1="-17.78" x2="0" y2="-17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$14" class="0">
+<net name="AOB" class="0">
 <segment>
 <pinref part="IC1" gate="C" pin="OUT"/>
 <pinref part="R12" gate="G$1" pin="1"/>
