@@ -4,6 +4,25 @@
 
 #include "mightIO.h"
 
+#define VAL_SORT(a,b) { if ((a)>(b)) VAL_SWAP((a),(b)); }
+#define VAL_SWAP(a,b) { int16_t temp=(a);(a)=(b);(b)=temp; }
+
+int16_t opt_med5(int16_t * p)
+{
+    VAL_SORT(p[0],p[1]) ; VAL_SORT(p[3],p[4]) ; VAL_SORT(p[0],p[3]) ;
+    VAL_SORT(p[1],p[4]) ; VAL_SORT(p[1],p[2]) ; VAL_SORT(p[2],p[3]) ;
+    VAL_SORT(p[1],p[2]) ; return(p[2]) ;
+}
+
+int16_t opt_med7(int16_t * p)
+{
+    VAL_SORT(p[0], p[5]) ; VAL_SORT(p[0], p[3]) ; VAL_SORT(p[1], p[6]) ;
+    VAL_SORT(p[2], p[4]) ; VAL_SORT(p[0], p[1]) ; VAL_SORT(p[3], p[5]) ;
+    VAL_SORT(p[2], p[6]) ; VAL_SORT(p[2], p[3]) ; VAL_SORT(p[3], p[6]) ;
+    VAL_SORT(p[4], p[5]) ; VAL_SORT(p[1], p[4]) ; VAL_SORT(p[1], p[3]) ;
+    VAL_SORT(p[3], p[4]) ; return (p[3]) ;
+}
+
 
 // Initialize class and device addresses from IDs
 mightIO::mightIO(uint8_t dacID, uint8_t adcID) : adcLastConfig(0)
@@ -90,6 +109,16 @@ void mightIO::analogRead(int16_t vin[])
   this->analogRead(vin,4);
 }
 
+// and some filtered ones
+int16_t mightIO::analogReadFilter(uint8_t ch)
+{
+	int16_t vals[7];
+	
+	for (int i=0; i<7; i++)
+		vals[i] = analogRead(ch);
+		
+	return opt_med7(vals);
+}
 
 
 // Private function to set config byte, does nothing if already set

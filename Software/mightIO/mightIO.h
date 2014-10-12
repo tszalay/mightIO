@@ -34,13 +34,14 @@ class mightIO
     void     	begin();
 	
 	// DAC output functions
-	void		analogWrite(uint8_t ch, int16_t vout);  // single channel
-	void  		analogWrite(int16_t vout[]); // all channels
+	void		analogWrite(uint8_t ch, int16_t vout);  	// single channel
+	void  		analogWrite(int16_t vout[]); 				// all channels
 	
 	// ADC input functions
-	int16_t 	analogRead(uint8_t ch); // single channel
-	void 		analogRead(int16_t vin[]); // all channels
-	void 		analogRead(int16_t vin[], uint8_t nchan); // first n channels
+	int16_t 	analogRead(uint8_t ch); 					// single channel
+	void 		analogRead(int16_t vin[]); 					// all channels
+	void 		analogRead(int16_t vin[], uint8_t nchan); 	// first n channels
+	int16_t 	analogReadFilter(uint8_t ch); 				// read single channel, median-filtered
 	
     void     	print();
 
@@ -48,13 +49,13 @@ class mightIO
     uint8_t		dacAddr;
 	uint8_t		adcAddr;
 	
-	uint8_t		adcLastConfig; // the most recent config byte sent
+	uint8_t		adcLastConfig; 							// the most recent config byte sent
 	
-	void		dacSetGain(); // set Gain to 2 on all channels
-	void		dacSetVref(); // set Vref to internal 2.048V
+	void		dacSetGain(); 							// set Gain to 2 on all channels
+	void		dacSetVref(); 							// set Vref to internal 2.048V
 	
-	void		adcSetup(); // write setup byte
-	void		adcConfig(uint8_t ch, bool scanone); // write config byte
+	void		adcSetup(); 							// write setup byte
+	void		adcConfig(uint8_t ch, bool scanone); 	// write config byte
 };
 #endif
 
