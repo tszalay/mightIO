@@ -26,9 +26,10 @@ The +10V and -10V rails are generated using a MAX864 capacitive doubler/inverter
 
 ### Specs
 
+All relevant numbers below are based on actual measurements.
 * Footprint: 1.5 in x 1.25 in
-* Est. production cost: $8.90
-* Voltage range: 2x Vin, minus about 0.8V droop
+* Est. materials cost: $8.90
+* Voltage range: 2x Vin, minus about 0.6V droop
 * Channels: 4 in, 4 out
 * Noise: 40 mV pk-pk, <10 mV RMS (<0.1% noise)
 * Resolution: 9 bits raw, 11 bits software median-filtered (<0.1% error)
