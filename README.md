@@ -30,8 +30,8 @@ The +10V and -10V rails are generated using a MAX864 capacitive doubler/inverter
 * Est. production cost: $8.90
 * Voltage range: 2x Vin, minus about 0.8V droop
 * Channels: 4 in, 4 out
-* Noise: 40 mV pk-pk, <10 mV RMS (<0.1%)
-* Resolution: 9 bits raw, 11 bits software median-filtered
+* Noise: 40 mV pk-pk, <10 mV RMS (<0.1% noise)
+* Resolution: 9 bits raw, 11 bits software median-filtered (<0.1% error)
 * Power consumption: 20 mA (no load)
 * Maximum effective output load: ~50 mA (3V droop)
 * Output impedance: 50 ohms (<1.0V droop @ 1k load)
@@ -57,4 +57,4 @@ The library isn't finished, but the basic parts are all there, just needs some o
 
 ### Who
 
-Tamas Szalay, full-time Applied Physics grad student and part-time hacker, Arduino afficionado
+[Tamas Szalay](http://tamas-szalay.squarespace.com/), full-time Applied Physics grad student and part-time hacker, Arduino afficionado
