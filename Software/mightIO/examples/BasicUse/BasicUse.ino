@@ -30,6 +30,12 @@ void loop()
   
   mio.analogWrite(vals);
   
+  // or directly write -8V to channel 3
+  mio.analogWrite(3,-8000);
+  
   // now read from all 4 channels
   mio.analogRead(vals);
+  
+  // or filtered, from channel 3
+  int filtread = mio.analogReadFilter(3);
 }

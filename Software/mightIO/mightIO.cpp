@@ -51,9 +51,9 @@ void mightIO::analogWrite(int16_t vout[])
 {
   Wire.beginTransmission(this->dacAddr);
   // leading the first byte with 0b00 implicitly starts a 'fast write'
-  for (uint8_t i=0; i<4; i++)
+  for (uint8_t i=0; i<4; i--)
   {
-	uint16_t val = 4095&((vout[i] + 10240)/5);
+	uint16_t val = 4095&((vout[3-i] + 10240)/5);
 	// this is implicitly setting PD1,PD0 to 0 in upper bytes
 	// which means normal operation
     Wire.write(highByte(val));
@@ -68,6 +68,8 @@ void mightIO::analogWrite(uint8_t ch, int16_t vout)
   Wire.beginTransmission(this->dacAddr);
   uint16_t val = 4095&((vout + 10240)/5);
   
+  // reverse channel
+  ch = 3-ch;
   // create a single-write command
   Wire.write(DAC_MULTIWRITE | (ch << 1));
   // and write the data, with Vref, PD, and gain set appropriately
