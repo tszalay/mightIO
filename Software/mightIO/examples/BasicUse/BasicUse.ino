@@ -1,22 +1,35 @@
 /* 
-Basic use of Arduino library for MicroChip MCP4728 I2C D/A converter
-For discussion and feedback, please go to http://arduino.cc/forum/index.php/topic,51842.0.html
+Basic use example for the mightIO board. For more information, see
+http://github.com/tszalay/mightIO
+
+Written by Tamas Szalay
 */
 
 #include <Wire.h>
 #include "mightIO.h"
 
-mightIO mio = mightIO(1,0);
-
+// (0,0) are the base I2C addresses for the ADC and DAC chips
+// try changing these if nothing works
+mightIO mio = mightIO(0,0);
 
 void setup()
 {
-  //Serial.begin(9600);  // initialize serial interface for print()
-  mio.begin();  // initialize i2c interface
+  // initialize serial interface for print()
+  //Serial.begin(9600);
+  // initialize i2c interface and set registers
+  mio.begin();
 }
 
 
 void loop()
 {
+  int vals[4] = {0,0,0,0};
   
+  vals[0] = 1000;     // write 1V to channel 0
+  vals[1] = -3500;    // and -3.5V to channel 1
+  
+  mio.analogWrite(vals);
+  
+  // now read from all 4 channels
+  mio.analogRead(vals);
 }
