@@ -32,7 +32,7 @@ class mightIO
     mightIO(uint8_t dacID, uint8_t adcID);
 	
     void     	begin();
-	
+        
 	// DAC output functions
 	void		analogWrite(uint8_t ch, int16_t vout);  	// single channel
 	void  		analogWrite(int16_t vout[]); 				// all channels
@@ -43,19 +43,40 @@ class mightIO
 	void 		analogRead(int16_t vin[], uint8_t nchan); 	// first n channels
 	int16_t 	analogReadFilter(uint8_t ch); 				// read single channel, median-filtered
 	
+    // A serial output-using function
     void     	print();
+    
+    // calibration functions
+    // these straight up set the values
+    void        setCalibrationADC(uint8_t scale[], uint16_t offset[]);
+    void        setCalibrationDAC(uint8_t scale[], uint16_t offset[]);
+    // these offset the default values by a few ticks for 'tweaking' the calib
+    void        adjustCalibrationADC(int scale[], int offset[]);
+    void        adjustCalibrationDAC(int scale[], int offset[]);
+    // these return the values in the array
+	void        getCalibrationADC(uint8_t scale[], uint16_t offset[]);
+    void        getCalibrationDAC(uint8_t scale[], uint16_t offset[]);
+
 
   private:  
     uint8_t		dacAddr;
 	uint8_t		adcAddr;
 	
 	uint8_t		adcLastConfig; 							// the most recent config byte sent
+    
+    uint8_t     adc_scale[4];                           // multiplicative component of ADC scaling
+    uint8_t     dac_scale[4];                           // multiplicative component of DAC scaling
+    
+    uint16_t    adc_offset[4];                          // additive component of ADC scaling
+    uint16_t    dac_offset[4];                          // additive component of ADC scaling
 	
 	void		dacSetGain(); 							// set Gain to 2 on all channels
 	void		dacSetVref(); 							// set Vref to internal 2.048V
 	
 	void		adcSetup(); 							// write setup byte
 	void		adcConfig(uint8_t ch, bool scanone); 	// write config byte
+    
+    void        defaultCalib();                         // quick calculation for default calibration values
 };
 #endif
 
