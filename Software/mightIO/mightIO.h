@@ -47,16 +47,9 @@ class mightIO
     void     	print();
     
     // calibration functions
-    // these straight up set the values
-    void        setCalibrationADC(uint8_t scale[], uint16_t offset[]);
-    void        setCalibrationDAC(uint8_t scale[], uint16_t offset[]);
     // these offset the default values by a few ticks for 'tweaking' the calib
-    void        adjustCalibrationADC(int scale[], int offset[]);
-    void        adjustCalibrationDAC(int scale[], int offset[]);
-    // these return the values in the array
-	void        getCalibrationADC(uint8_t scale[], uint16_t offset[]);
-    void        getCalibrationDAC(uint8_t scale[], uint16_t offset[]);
-
+    void        adjustOffsetADC(int offset[]);
+    void        adjustOffsetDAC(int offset[]);
 
   private:  
     uint8_t		dacAddr;
@@ -64,11 +57,10 @@ class mightIO
 	
 	uint8_t		adcLastConfig; 							// the most recent config byte sent
     
-    uint8_t     adc_scale[4];                           // multiplicative component of ADC scaling
-    uint8_t     dac_scale[4];                           // multiplicative component of DAC scaling
-    
-    uint16_t    adc_offset[4];                          // additive component of ADC scaling
-    uint16_t    dac_offset[4];                          // additive component of ADC scaling
+    int16_t     adc_offset[4];                          // additive component of ADC scaling
+    int16_t     dac_offset[4];                          // additive component of ADC scaling
+	uint8_t		adc_scale;								// scaling, fixed at startup
+	uint8_t		dac_scale;								// scaling, fixed at startup
 	
 	void		dacSetGain(); 							// set Gain to 2 on all channels
 	void		dacSetVref(); 							// set Vref to internal 2.048V

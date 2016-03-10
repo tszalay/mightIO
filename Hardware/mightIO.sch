@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.0.0">
+<eagle version="6.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -13045,7 +13045,7 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <part name="IC3" library="texas" deviceset="LM4041" device="DBZ" technology="A12"/>
 <part name="R15" library="rcl" deviceset="R-US_" device="R0603" value="3.3k"/>
 <part name="R16" library="rcl" deviceset="R-US_" device="R0603" value="1k"/>
-<part name="R21" library="rcl" deviceset="R-US_" device="R0603" value="5.1k"/>
+<part name="R21" library="rcl" deviceset="R-US_" device="R0603" value="2k"/>
 <part name="P+5" library="supply1" deviceset="+5V" device=""/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
 <part name="JP1" library="pinhead" deviceset="PINHD-1X4" device=""/>
