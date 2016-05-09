@@ -13066,6 +13066,22 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 <sheets>
 <sheet>
 <plain>
+<text x="154.94" y="2.54" size="2.54" layer="97">Output
+header</text>
+<text x="-86.36" y="5.08" size="2.54" layer="97">Input
+header</text>
+<text x="-73.66" y="99.06" size="2.54" layer="97">Reference voltages</text>
+<text x="-78.74" y="-76.2" size="2.54" layer="97">Input opamp
+downscaling</text>
+<text x="109.22" y="-81.28" size="2.54" layer="97">Output opamp
+upscaling</text>
+<text x="160.02" y="53.34" size="2.54" layer="97">Arduino header</text>
+<text x="109.22" y="86.36" size="2.54" layer="97">Power supply caps</text>
+<text x="58.42" y="101.6" size="2.54" layer="97">Op-amp supply rails</text>
+<text x="22.86" y="-40.64" size="2.54" layer="97">mightIO v1.0
+Tamas Szalay</text>
+<text x="22.86" y="20.32" size="2.54" layer="97">Split rail
+breakout</text>
 </plain>
 <instances>
 <instance part="U$1" gate="G$1" x="33.02" y="66.04"/>
@@ -13806,4 +13822,10 @@ Source: http://focus.ti.com/lit/ds/slcs146e/slcs146e.pdf</description>
 </sheets>
 </schematic>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
 </eagle>
