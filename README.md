@@ -5,7 +5,7 @@ mightIO
 
 The mightIO is an analog IO board capable of inputting and outputting voltages from -10V to +10V off of a +5V power supply, across four channels, without any external components.
 
-![](https://dl.dropboxusercontent.com/u/2338995/mightio.jpg)
+![](photo.jpg)
 
 
 ### Why
